@@ -17,11 +17,11 @@ var DatatableRemoteAjaxDemo = function () {
 				},
 				pageSize: 10,
 				saveState: {
-					cookie: false,
-					webstorage: false
+					cookie: true,
+					webstorage: true
 				},
-				serverPaging: true,
-				serverFiltering: true,
+				serverPaging: false,
+				serverFiltering: false,
 				serverSorting: true
 			},
 
@@ -31,86 +31,71 @@ var DatatableRemoteAjaxDemo = function () {
 				class: '', // custom wrapper class
 				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
 				footer: false // display/hide footer
+
 			},
 
 			// column sorting
-			sortable: true,
+			sortable: false,
 
 			// column based filtering
-			filterable: false,
+			filterable: true,
 
 			pagination: true,
 
+			toolbar: {
+				layout: ['pagination', 'info'],
+				placement: ['bottom'],
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				height: 350,
+				footer: false // display/hide footer
+
+			},
 			// columns definition
 			columns: [{
 				field: "no_remision",
 				title: "No.",
 				sortable: false,
-				width: 30,
+				width: 80,
 				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
 			}, {
 				field: "fecha_remision",
-				title: "Fecha",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "Fecha"
 			}, {
 				field: "hora_llegada_origen",
-				title: "Hora llegada",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "Hora llegada"
 			},{
 				field: "hora_salida_origen",
-				title: "Hora Salida",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "Hora Salida"
 			},{
 				field: "nombre_empresa",
-				title: "Empresa",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "Empresa"
 			},{
 				field: "obra",
-				title: "Obra",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "Obra"
 			},{
 				field: "nombre_material",
-				title: "Material",
-				width: 90,
-				responsive: {visible: 'lg'}
+				title: "Material"
 			},{
 				field: "unidad_m3",
-				title: "m3",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "m3"
 			},
 			{
 				field: "numero_camion",
-				title: "Camion",
-				width: 70,
-				responsive: {visible: 'lg'}
+				title: "Camion"
 			},{
 				field: "placas_camion",
-				title: "Placas",
-				width: 50,
-				responsive: {visible: 'lg'}
+				title: "Placas"
 			},
 			{
 				field: "nombre_operador",
-				title: "Operador",
-				width: 90,
-				responsive: {visible: 'lg'}
+				title: "Operador"
 			},	{
 				field: "recibido_obra",
-				title: "Recibido",
-				width: 90,
-				responsive: {visible: 'lg'}
+				title: "Recibido"
 			},
 			{
 				field: "placas_gondola",
-				title: "Gondola",
-				width: 90,
-				responsive: {visible: 'lg'}
+				title: "Gondola"
 			},{
 				field: "Actions",
 				width: 110,
@@ -118,29 +103,40 @@ var DatatableRemoteAjaxDemo = function () {
 				sortable: false,
 				overflow: 'visible',
 				template: function (row) {
-					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
 
 					return '\
-						<div class="dropdown '+ dropup +'">\
-							<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
-                                <i class="la la-ellipsis-h"></i>\
-                            </a>\
-						  	<div class="dropdown-menu dropdown-menu-right">\
-						    	<a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>\
-						    	<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\
-						    	<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\
-						  	</div>\
-						</div>\
-						<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\
-							<i class="la la-edit"></i>\
-						</a>\
-						<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\
-							<i class="la la-trash"></i>\
-						</a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-trash"></i></a>\
 					';
 				}
-			}]
+			}],
+			translate: {
+				records: {
+					processing: 'Cargando...',
+					noRecords: 'No se encontrarón materiales'
+				},
+				toolbar: {
+					pagination: {
+						items: {
+							default: {
+								first: 'Primero',
+								prev: 'Anterior',
+								next: 'Siguiente',
+								last: 'Último',
+								more: 'Más páginas',
+								input: 'Número de página',
+								select: 'Seleccionar tamaño de página'
+							},
+							info: 'Viendo {{start}} - {{end}} de {{total}} registros'
+						}
+					}
+				}
+			}
+
+
+
 		});
+
 
 		//datatble de las enmpresas
 		var datatable2 = $('.m_datatable_emp').mDatatable({
@@ -154,11 +150,11 @@ var DatatableRemoteAjaxDemo = function () {
 				},
 				pageSize: 10,
 				saveState: {
-					cookie: false,
-					webstorage: false
+					cookie: true,
+					webstorage: true
 				},
-				serverPaging: true,
-				serverFiltering: true,
+				serverPaging: false,
+				serverFiltering: false,
 				serverSorting: true
 			},
 
@@ -168,31 +164,40 @@ var DatatableRemoteAjaxDemo = function () {
 				class: '', // custom wrapper class
 				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
 				footer: false // display/hide footer
+
 			},
 
 			// column sorting
-			sortable: true,
+			sortable: false,
 
 			// column based filtering
-			filterable: false,
+			filterable: true,
 
 			pagination: true,
+
+			toolbar: {
+				layout: ['pagination', 'info'],
+				placement: ['bottom'],
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				height: 350,
+				footer: false // display/hide footer
+
+			},
 
 			// columns definition
 			columns: [{
 				field: "id_empresa",
 				title: "ID",
 				sortable: false,
+				textAlign: 'center',
 				width: 30,
 				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
 			}, {
 				field: "nombre_empresa",
-				title: "Nombre",
-				width: 200,
-				responsive: {visible: 'lg'}
+				title: "Nombre"
 			}, {				
 				field: "Actions",
-				width: 110,
+				width: 100,
 				title: "Acciones",
 				sortable: false,
 				overflow: 'visible',
@@ -200,26 +205,38 @@ var DatatableRemoteAjaxDemo = function () {
 					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
 
 					return '\
-						<div class="dropdown '+ dropup +'">\
-							<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
-                                <i class="la la-ellipsis-h"></i>\
-                            </a>\
-						  	<div class="dropdown-menu dropdown-menu-right">\
-						    	<a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>\
-						    	<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\
-						    	<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\
-						  	</div>\
-						</div>\
-						<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\
-							<i class="la la-edit"></i>\
-						</a>\
-						<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\
-							<i class="la la-trash"></i>\
-						</a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-trash"></i></a>\
 					';
 				}
-			}]
+			}],
+			translate: {
+				records: {
+					processing: 'Cargando...',
+					noRecords: 'No se encontrarón materiales'
+				},
+				toolbar: {
+					pagination: {
+						items: {
+							default: {
+								first: 'Primero',
+								prev: 'Anterior',
+								next: 'Siguiente',
+								last: 'Último',
+								more: 'Más páginas',
+								input: 'Número de página',
+								select: 'Seleccionar tamaño de página'
+							},
+							info: 'Viendo {{start}} - {{end}} de {{total}} registros'
+						}
+					}
+				}
+			}
+
+
+
 		});
+
 
 		//datatable de los materiales
 		var datatable3 = $('.m_datatable_mat').mDatatable({
@@ -287,15 +304,8 @@ var DatatableRemoteAjaxDemo = function () {
 					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
 
 					return '\
-						<div class="dropdown '+ dropup +'">\
-							<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">\
-                                <i class="la la-ellipsis-h"></i>\
-                            </a>\
-						  	<div class="dropdown-menu dropdown-menu-right">\
-						    	<a class="dropdown-item" href="#"><i class="la la-edit"></i> Editar</a>\
-						    	<a class="dropdown-item" href="#"><i class="la la-trash"></i> Eliminar</a>\
-						  	</div>\
-						</div>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-trash"></i></a>\
 					';
 				}
 			}],
@@ -325,7 +335,321 @@ var DatatableRemoteAjaxDemo = function () {
 
 
 		});
+
+		//datatable para los camiones
+		var datatable4 = $('.m_datatable_camiones').mDatatable({
+			// datasource definition
+			data: {
+				type: 'remote',
+				source: {
+					read: {
+						url: 'http://localhost/sandieguito/camiones/get_camiones.php'
+					}
+				},
+				pageSize: 10,
+				saveState: {
+					cookie: true,
+					webstorage: true
+				},
+				serverPaging: false,
+				serverFiltering: false,
+				serverSorting: true
+			},
+
+			// layout definition
+			layout: {
+				theme: 'default', // datatable theme
+				class: '', // custom wrapper class
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				footer: false // display/hide footer
+
+			},
+
+			// column sorting
+			sortable: false,
+
+			// column based filtering
+			filterable: true,
+
+			pagination: true,
+
+			toolbar: {
+				layout: ['pagination', 'info'],
+				placement: ['bottom'],
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				height: 350,
+				footer: false // display/hide footer
+
+			},
+
+			// columns definition
+			columns: [{
+				field: "placas_camion",
+				title: "Placas",
+				sortable: false
+				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
+			}, {
+				field: "numero_camion",
+				title: "No."
+			}, {
+				field: "modelo_camion",
+				title: "Modelo"
+			},{
+				field: "nombre_permisionario",
+				title: "Permisionario"
+			},{				
+				field: "Actions",
+				title: "Acciones",
+				sortable: false,
+				width:100,
+				overflow: 'visible',
+				template: function (row) {
+					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
+
+					return '\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-trash"></i></a>\
+					';
+				}
+			}],
+			translate: {
+				records: {
+					processing: 'Cargando...',
+					noRecords: 'No se encontrarón camiones'
+				},
+				toolbar: {
+					pagination: {
+						items: {
+							default: {
+								first: 'Primero',
+								prev: 'Anterior',
+								next: 'Siguiente',
+								last: 'Último',
+								more: 'Más páginas',
+								input: 'Número de página',
+								select: 'Seleccionar tamaño de página'
+							},
+							info: 'Viendo {{start}} - {{end}} de {{total}} registros'
+						}
+					}
+				}
+			}
+
+
+
+		});
+
+		//datatable de los operadores
+		var datatable5 = $('.m_datatable_operadores').mDatatable({
+			// datasource definition
+			data: {
+				type: 'remote',
+				source: {
+					read: {
+						url: 'http://localhost/sandieguito/operadores/get_operadores.php'
+					}
+				},
+				pageSize: 10,
+				saveState: {
+					cookie: true,
+					webstorage: true
+				},
+				serverPaging: false,
+				serverFiltering: false,
+				serverSorting: true
+			},
+
+			// layout definition
+			layout: {
+				theme: 'default', // datatable theme
+				class: '', // custom wrapper class
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				footer: false // display/hide footer
+
+			},
+
+			// column sorting
+			sortable: false,
+
+			// column based filtering
+			filterable: true,
+
+			pagination: true,
+
+			toolbar: {
+				layout: ['pagination', 'info'],
+				placement: ['bottom'],
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				height: 350,
+				footer: false // display/hide footer
+
+			},
+
+			// columns definition
+			columns: [{
+				field: "id_operador",
+				title: "ID",
+				sortable: false,
+				textAlign: 'center',
+				width: 30
+				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
+			}, {
+				field: "nombre_operador",
+				title: "Nombre del operador"
+			}, {				
+				field: "Actions",
+				title: "Acciones",
+				sortable: false,
+				width:100,
+				overflow: 'visible',
+				template: function (row) {
+					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
+
+					return '\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-trash"></i></a>\
+					';
+				}
+			}],
+			translate: {
+				records: {
+					processing: 'Cargando...',
+					noRecords: 'No se encontrarón camiones'
+				},
+				toolbar: {
+					pagination: {
+						items: {
+							default: {
+								first: 'Primero',
+								prev: 'Anterior',
+								next: 'Siguiente',
+								last: 'Último',
+								more: 'Más páginas',
+								input: 'Número de página',
+								select: 'Seleccionar tamaño de página'
+							},
+							info: 'Viendo {{start}} - {{end}} de {{total}} registros'
+						}
+					}
+				}
+			}
+
+
+
+		});
+
+		//datatable de los permisionarios
+		var datatable4 = $('.m_datatable_permisionarios').mDatatable({
+			// datasource definition
+			data: {
+				type: 'remote',
+				source: {
+					read: {
+						url: 'http://localhost/sandieguito/permisionarios/get_permisionarios.php'
+					}
+				},
+				pageSize: 10,
+				saveState: {
+					cookie: true,
+					webstorage: true
+				},
+				serverPaging: false,
+				serverFiltering: false,
+				serverSorting: true
+			},
+
+			// layout definition
+			layout: {
+				theme: 'default', // datatable theme
+				class: '', // custom wrapper class
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				footer: false // display/hide footer
+
+			},
+
+			// column sorting
+			sortable: false,
+
+			// column based filtering
+			filterable: true,
+
+			pagination: true,
+
+			toolbar: {
+				layout: ['pagination', 'info'],
+				placement: ['bottom'],
+				scroll: true, // enable/disable datatable scroll both horizontal and vertical when needed.
+				height: 350,
+				footer: false // display/hide footer
+
+			},
+
+			// columns definition
+			columns: [{
+				field: "id_permisionario",
+				title: "ID",
+				sortable: false,
+				textAlign: 'center',
+				width: 30
+				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
+			}, {
+				field: "nombre_permisionario",
+				title: "Nombre del Permisionario"
+			}, {				
+				field: "Actions",
+				title: "Acciones",
+				sortable: false,
+				width:100,
+				overflow: 'visible',
+				template: function (row) {
+					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
+
+					return '\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
+						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-trash"></i></a>\
+					';
+				}
+			}],
+			translate: {
+				records: {
+					processing: 'Cargando...',
+					noRecords: 'No se encontrarón camiones'
+				},
+				toolbar: {
+					pagination: {
+						items: {
+							default: {
+								first: 'Primero',
+								prev: 'Anterior',
+								next: 'Siguiente',
+								last: 'Último',
+								more: 'Más páginas',
+								input: 'Número de página',
+								select: 'Seleccionar tamaño de página'
+							},
+							info: 'Viendo {{start}} - {{end}} de {{total}} registros'
+						}
+					}
+				}
+			}
+
+
+
+		});
+		//busqueda para la tabla de remisiones
+		var query1 = datatable1.getDataSourceQuery();
 		
+		$('#m_form_search').on('keyup', function (e) {
+			// shortcode to datatable.getDataSourceParam('query');
+			var query1 = datatable1.getDataSourceQuery();
+			query1.generalSearch = $(this).val().toLowerCase();
+			// shortcode to datatable.setDataSourceParam('query', query);
+			datatable1.setDataSourceQuery(query1);
+			datatable1.load();
+		}).val(query1.generalSearch);
+
+
+
 		var query = datatable3.getDataSourceQuery();
 		
 		$('#m_form_search').on('keyup', function (e) {

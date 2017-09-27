@@ -39,12 +39,14 @@
 		<!--begin::Base Scripts -->
 		<script src="assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
 		<script src="assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+		<script src="assets/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
+		<script src="assets/demo/default/custom/components/forms/widgets/bootstrap-select.js" type="text/javascript"></script>
+		<script src="assets/demo/default/custom/components/forms/widgets/bootstrap-datetimepicker.js" type="text/javascript"></script>
 		<!--end::Base Scripts -->
 		<!--begin::Page Snippets -->
 		<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
 		<!--end::Page Snippets -->
 		<script src="assets/app/js/data-ajax.js" type="text/javascript"></script>
-
 							
 	</body>
 	<!-- end::Body -->

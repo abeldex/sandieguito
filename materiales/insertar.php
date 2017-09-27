@@ -13,7 +13,8 @@ if (isset($_POST["nombre_mat"])) {
     $res= mysqli_query($con,$query);  
 
     if($res!=null){
-            echo '<script>alert("Se aguardó \"'.$nombre.'\" correctamente");window.location="../materiales"</script>';
+    		//echo ""
+            echo '<script type="text/javascript">alert("Se aguardó \"'.$nombre.'\" correctamente");window.location="../materiales"</script>';
           }
 }
 else

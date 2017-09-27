@@ -20,8 +20,7 @@ include('../inc/conexion.php');
 									</div>
 								</div>
 							</div>
-							<div class="m-portlet__body">
-								<!--begin: Search Form -->
+														<div class="m-portlet__body">
 								<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
 									<div class="row align-items-center">
 										<div class="col-xl-8 order-2 order-xl-1">
@@ -38,12 +37,12 @@ include('../inc/conexion.php');
 												</div>
 											</div>
 										</div>
-										<div class="col-xl-12 m--align-right">
-											<a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+										<div class="col-xl-12 order-1 order-xl-2 m--align-right">
+											<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_camiones">
 												<span>
 													<i class="flaticon-truck"></i>
 													<span>
-														Nuevo Camión
+														Nuevo Camion
 													</span>
 												</span>
 											</a>
@@ -52,55 +51,69 @@ include('../inc/conexion.php');
 									</div>
 								</div>
 								<!--end: Search Form -->
-								<!--begin: Datatable -->
-								<table id="dt_scroll" class="table-striped" width="100%">
-												<thead>
-												<tr>
-													<th>Placas</th>
-													<th>No.</th>
-													<th>Modelo</th>
-													<th>Permisionario</th>
-													<th>Opciones</th>
-												</tr>
-												</thead>
-												<tbody>
-												<?php
-																 
-																  $sql = "SELECT * FROM camiones inner join permisionarios on camiones.id_permisionario = permisionarios.id_permisionario";
-																  $result_scale = mysqli_query($con, $sql)or die(mysqli_error());
-																  while($row = mysqli_fetch_array($result_scale)){
-																   $placas     = $row['placas_camion'];
-																   $numero     = $row['numero_camion'];
-																   $modelo     = $row['modelo_camion'];
-																   $permiosionario     = $row['nombre_permisionario'];																   
-																  
-																   // Now for each looped row
-																	echo utf8_encode(' <tr>
-																		<td>'.$placas.'</td>
-																		<td>'.$numero.'</td>
-																		<td>'.$modelo.'</td>
-																		<td>'.$permiosionario.'</td>
-																		<td>
-																			<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
-																				<i class="la la-edit"></i>
-																			</a>
-																			<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-																				<i class="la la-trash"></i>
-																			</a>
-																		</td>
-																	</tr>');																												  
-																  } // End our scale while loop		
-																  
-													?>
-											   
-												</tbody>
-											</table>
-					
-					</div>
+
+								<div class="m_datatable_camiones"></div>
+
+
+							</div>
 						</div>
 						
 					</div>
 				</div>
+
+			<div class="modal fade" id="modal_camiones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLabel">Nuevo Camion</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">×</span>
+					        </button>
+					      </div>
+					      <div class="modal-body">
+					        <form id="nuevo_camion" method="POST" action="camiones/insertar.php">
+					          <div class="form-group">
+					            <label for="placas" class="form-control-label">Placas:</label>
+					            <input type="text" class="form-control" id="placas" name="placas">
+					          </div>
+					          <div class="form-group">
+					            <label for="numero_camion" class="form-control-label">Número:</label>
+					            <input type="text" class="form-control" id="numero_camion" name="numero_camion">
+					          </div>
+					           <div class="form-group">
+					            <label for="modelo" class="form-control-label">Número:</label>
+					            <input type="text" class="form-control" id="modelo" name="modelo">
+					          </div>
+					           <div class="form-group">
+					            <label for="modelo" class="form-control-label">Permisionario:</label>
+					            <select class="form-control" name="permisionario">
+					            <!--select para los permisionarios-->
+					            <?php
+
+									$sql = "SELECT * FROM permisionarios";
+									$result_scale = mysqli_query($con, $sql)or die(mysqli_error());
+									while($row = mysqli_fetch_array($result_scale))
+									{
+										unset($id, $name);
+									    $id = $row['id_permisionario'];
+									    $name = $row['nombre_permisionario']; 
+									    echo '<option value="'.$id.'">'.$name.'</option>';
+									}
+									
+								?> 
+								</select>
+					          </div>
+					        
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+					        <button type="submit" class="btn btn-primary">Guardar</button>
+					        </form>
+					      </div>
+					    </div>
+					  </div>
+					</div>				
+
 				
 				
 <?php
