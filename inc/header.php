@@ -1,9 +1,9 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="es" >
 	<!-- begin::Head -->
 	<head>
-		<base href="http://148.227.28.28/sandieguito/">
+		<base href="http://localhost/sandieguito/">
 		<meta charset="utf-8" />
 		<title>
 			Sistema | San Dieguito

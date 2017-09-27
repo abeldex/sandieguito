@@ -6,12 +6,12 @@ var DefaultDatatableDemo = function () {
 	// basic demo
 	var demo = function () {
 
-		var datatable = $('.m_datatable').mDatatable({
+		var datatable = $('.m_datatable_remi').mDatatable({
 			data: {
 				type: 'remote',
 				source: {
 					read: {
-						url: 'http://148.227.28.28/sandieguito/remisiones/get_remisiones.php'
+						url: 'http://localhost/sandieguito/remisiones/get_remisiones.php'
 					}
 				},
 				pageSize: 10,

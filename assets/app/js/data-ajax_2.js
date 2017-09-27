@@ -6,13 +6,13 @@ var DatatableRemoteAjaxDemo = function () {
 	// basic demo
 	var demo = function () {
 
-		var datatable = $('.m_datatable').mDatatable({
+		var datatable = $('.m_datatable_remi').mDatatable({
 			// datasource definition
 			data: {
 				type: 'remote',
 				source: {
 					read: {
-						url: 'http://148.227.28.28/sandieguito/remisiones/get_remisiones.php'
+						url: 'http://localhost/sandieguito/remisiones/get_remisiones.php'
 					}
 				},
 				pageSize: 10,
@@ -43,75 +43,17 @@ var DatatableRemoteAjaxDemo = function () {
 
 			// columns definition
 			columns: [{
-				field: "no_remision",
-				title: "No.",
+				field: "id_empresa",
+				title: "ID",
 				sortable: false,
 				width: 30,
 				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
 			}, {
-				field: "fecha_remision",
-				title: "Fecha",
-				width: 70,
-				responsive: {visible: 'lg'}
-			}, {
-				field: "hora_llegada_origen",
-				title: "Hora llegada",
-				width: 70,
-				responsive: {visible: 'lg'}
-			},{
-				field: "hora_salida_origen",
-				title: "Hora Salida",
-				width: 70,
-				responsive: {visible: 'lg'}
-			},{
 				field: "nombre_empresa",
-				title: "Empresa",
-				width: 70,
+				title: "Nombre",
+				width: 200,
 				responsive: {visible: 'lg'}
-			},{
-				field: "obra",
-				title: "Obra",
-				width: 70,
-				responsive: {visible: 'lg'}
-			},{
-				field: "nombre_material",
-				title: "Material",
-				width: 90,
-				responsive: {visible: 'lg'}
-			},{
-				field: "unidad_m3",
-				title: "m3",
-				width: 70,
-				responsive: {visible: 'lg'}
-			},
-			{
-				field: "numero_camion",
-				title: "Camion",
-				width: 70,
-				responsive: {visible: 'lg'}
-			},{
-				field: "placas_camion",
-				title: "Placas",
-				width: 50,
-				responsive: {visible: 'lg'}
-			},
-			{
-				field: "nombre_operador",
-				title: "Operador",
-				width: 90,
-				responsive: {visible: 'lg'}
-			},	{
-				field: "recibido_obra",
-				title: "Recibido",
-				width: 90,
-				responsive: {visible: 'lg'}
-			},
-			{
-				field: "placas_gondola",
-				title: "Gondola",
-				width: 90,
-				responsive: {visible: 'lg'}
-			},{
+			}, {				
 				field: "Actions",
 				width: 110,
 				title: "Acciones",

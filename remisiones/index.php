@@ -53,7 +53,7 @@ include('../inc/conexion.php');
 								</div>
 								<!--end: Search Form -->
 
-								<div class="m_datatable" id="scrolling_both"></div>
+								<div class="m_datatable_remi" id="scrolling_both"></div>
 								</div>
 						</div>
 						

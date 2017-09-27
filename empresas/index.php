@@ -23,6 +23,7 @@ include('../inc/conexion.php');
 							</div>
 							<div class="m-portlet__body">
 								<!--begin: Search Form -->
+<!--begin: Search Form -->
 								<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
 									<div class="row align-items-center">
 										<!--<div class="col-xl-8 order-2 order-xl-1">
@@ -42,7 +43,7 @@ include('../inc/conexion.php');
 										<div class="col-xl-12 order-1 order-xl-2 m--align-right">
 											<a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
 												<span>
-													<i class="flaticon-map"></i>
+													<i class="flaticon-open-box"></i>
 													<span>
 														Nueva Empresa
 													</span>
@@ -53,44 +54,8 @@ include('../inc/conexion.php');
 									</div>
 								</div>
 								<!--end: Search Form -->
-								<!--begin: Datatable -->
-								<table id="m_datatable" class="table-striped" width="100%">
-												<thead>
-												<tr>
-													<th>Clave</th>
-													<th>Nombre</th>
-													<th>Opciones</th>
-												</tr>
-												</thead>
-												<tbody>
-												<?php
-																 
-																  $sql = "SELECT * FROM empresas";
-																  $result_scale = mysqli_query($con, $sql)or die(mysqli_error());
-																  while($row = mysqli_fetch_array($result_scale)){
-																   $id_emp     = $row['id_empresa'];
-																   $nombre     = $row['nombre_empresa'];																   
-																  
-																   // Now for each looped row
-																	echo utf8_encode(' <tr>
-																		<td>'.$id_emp.'</td>
-																		<td>'.$nombre.'</td>
-																		<td>
-																			<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
-																				<i class="la la-edit"></i>
-																			</a>
-																			<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-																				<i class="la la-trash"></i>
-																			</a>
-																		</td>
-																	</tr>');																												  
-																  } // End our scale while loop		
-																  
-													?>
-											   
-												</tbody>
-								</table>
-								<!--end: Datatable -->
+
+								<div class="m_datatable_emp" id="11"></div>
 							</div>
 						</div>
 						
