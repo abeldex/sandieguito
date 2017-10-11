@@ -13,6 +13,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!--begin::Web font -->
 		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+		
+		<script>
+
+		</script>
 		<script>
           WebFont.load({
             google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
@@ -206,7 +210,7 @@
 								</a>	
 							</li>
 							
-							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
+							<!--<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
 								<a  href="operadores/" class="m-menu__link m-menu__toggle">
 									<i class="m-menu__link-icon flaticon-user"></i>
 									<span class="m-menu__link-text">
@@ -214,9 +218,9 @@
 									</span>
 									<i class="m-menu__ver-arrow la la-angle-right"></i>
 								</a>	
-							</li>
+							</li>-->
 							
-							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
+							<!--<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
 								<a  href="camiones/" class="m-menu__link m-menu__toggle">
 									<i class="m-menu__link-icon flaticon-truck"></i>
 									<span class="m-menu__link-text">
@@ -224,7 +228,7 @@
 									</span>
 									<i class="m-menu__ver-arrow la la-angle-right"></i>
 								</a>	
-							</li>
+							</li>-->
 							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="hover">
 								<a  href="materiales/" class="m-menu__link m-menu__toggle">
 									<i class="m-menu__link-icon flaticon-open-box"></i>

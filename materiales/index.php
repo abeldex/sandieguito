@@ -77,6 +77,14 @@ include('../inc/conexion.php');
 					            <label for="nombre_mat" class="form-control-label">Nombre del Material:</label>
 					            <input type="text" class="form-control" id="nombre_mat" name="nombre_mat">
 					          </div>
+					          <div class="form-group">
+					            <label for="nombre_mat" class="form-control-label">Precio compra:</label>
+					            <input type="number" class="form-control" id="compra" name="compra">
+					          </div>
+					          <div class="form-group">
+					            <label for="nombre_mat" class="form-control-label">Precio venta:</label>
+					            <input type="number" class="form-control" id="venta" name="venta">
+					          </div>
 					        
 					      </div>
 					      <div class="modal-footer">

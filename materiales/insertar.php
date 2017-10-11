@@ -8,7 +8,9 @@ if (isset($_POST["nombre_mat"])) {
     include('../inc/conexion.php');
 
     $nombre = $_POST['nombre_mat'];
-    $query = "INSERT INTO materiales(id_material,nombre_material) VALUES(null,'".$nombre."')";
+    $compra = $_POST['compra'];
+    $venta = $_POST['venta'];
+    $query = "INSERT INTO materiales(id_material,nombre_material, precio_compra, precio_venta) VALUES(null,'".$nombre."','".$compra."','".$venta."')";
 
     $res= mysqli_query($con,$query);  
 

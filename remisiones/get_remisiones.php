@@ -1,7 +1,8 @@
 <?php
 //incluir conexion
 include('../inc/conexion.php');
-$sql = "SELECT no_remision, fecha_remision, DATE_FORMAT(hora_llegada_origen, '%H:%i') as 'hora_llegada_origen', DATE_FORMAT(hora_salida_origen, '%H:%i') as 'hora_salida_origen', nombre_empresa, obra, nombre_material, unidad_m3, numero_camion, nombre_operador, camiones.placas_camion, recibido_obra, placas_gondola FROM remisiones inner JOIN empresas on remisiones.lugar_carga = empresas.id_empresa inner join materiales on remisiones.material = materiales.id_material inner join camiones on remisiones.placas_camion = camiones.placas_camion inner join operadores on remisiones.id_operador = operadores.id_operador";
+$sql = "SELECT * FROM remisiones inner join empresas on remisiones.empresa = empresas.id_empresa
+inner join materiales on materiales.id_material = remisiones.material";
 $result_scale = mysqli_query($con, $sql)or die(mysqli_error());
 $row_cnt = $result_scale->num_rows;
 

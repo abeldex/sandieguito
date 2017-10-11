@@ -81,7 +81,7 @@ include('../inc/conexion.php');
 					            <input type="text" class="form-control" id="numero_camion" name="numero_camion">
 					          </div>
 					           <div class="form-group">
-					            <label for="modelo" class="form-control-label">Número:</label>
+					            <label for="modelo" class="form-control-label">Modelo:</label>
 					            <input type="text" class="form-control" id="modelo" name="modelo">
 					          </div>
 					           <div class="form-group">

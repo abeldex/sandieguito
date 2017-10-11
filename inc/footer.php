@@ -47,7 +47,8 @@
 		<script src="assets/app/js/dashboard.js" type="text/javascript"></script>
 		<!--end::Page Snippets -->
 		<script src="assets/app/js/data-ajax.js" type="text/javascript"></script>
-							
+			
 	</body>
+
 	<!-- end::Body -->
 </html>

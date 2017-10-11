@@ -6,7 +6,9 @@ var DatatableRemoteAjaxDemo = function () {
 	// load remisiones
 	var remisiones = function () {
 
-		var datatable1 = $('.m_datatable_remi').mDatatable({
+
+		//datatable de los materiales
+		var datatable3 = $('.m_datatable_r').mDatatable({
 			// datasource definition
 			data: {
 				type: 'remote',
@@ -50,59 +52,50 @@ var DatatableRemoteAjaxDemo = function () {
 				footer: false // display/hide footer
 
 			},
+
 			// columns definition
 			columns: [{
 				field: "no_remision",
 				title: "No.",
 				sortable: false,
-				width: 80,
+				textAlign: 'center',
+				width: 30
 				//selector: {class: 'm-checkbox--solid m-checkbox--brand'}
 			}, {
-				field: "fecha_remision",
-				title: "Fecha"
-			}, {
-				field: "hora_llegada_origen",
-				title: "Hora llegada"
-			},{
-				field: "hora_salida_origen",
-				title: "Hora Salida"
-			},{
-				field: "nombre_empresa",
-				title: "Empresa"
-			},{
-				field: "obra",
-				title: "Obra"
-			},{
-				field: "nombre_material",
-				title: "Material"
+				field: "placas_camion",
+				title: "Camion",
+				width: 70
 			},{
 				field: "unidad_m3",
-				title: "m3"
-			},
-			{
-				field: "numero_camion",
-				title: "Camion"
+				title: "m3",
+				width: 30
 			},{
-				field: "placas_camion",
-				title: "Placas"
-			},
-			{
-				field: "nombre_operador",
-				title: "Operador"
-			},	{
-				field: "recibido_obra",
-				title: "Recibido"
-			},
-			{
-				field: "placas_gondola",
-				title: "Gondola"
+				field: "nombre_empresa",
+				title: "Empresa",
+				width: 70
+			}, {
+				field: "fecha_remision",
+				title: "Fecha",
+				width: 90
+			}, {
+				field: "obra",
+				title: "Obra",
+				width: 90
 			},{
+				field: "nombre_material",
+				title: "Material",
+				width: 90
+			},{
+				field: "operador",
+				title: "operador",
+				width: 140
+			},{				
 				field: "Actions",
-				width: 110,
 				title: "Acciones",
 				sortable: false,
 				overflow: 'visible',
 				template: function (row) {
+					var dropup = (row.getDatatable().getPageSize() - row.getIndex()) <= 4 ? 'dropup' : ''; 
 
 					return '\
 						<a class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" href="#"><i class="la la-edit"></i></a>\
@@ -138,7 +131,8 @@ var DatatableRemoteAjaxDemo = function () {
 		});
 
 
-		//datatble de las enmpresas
+
+			//datatble de las enmpresas
 		var datatable2 = $('.m_datatable_emp').mDatatable({
 			// datasource definition
 			data: {
@@ -295,6 +289,12 @@ var DatatableRemoteAjaxDemo = function () {
 			}, {
 				field: "nombre_material",
 				title: "Nombre del material"
+			}, {
+				field: "precio_compra",
+				title: "Precio Compra"
+			}, {
+				field: "precio_venta",
+				title: "Precio Venta"
 			}, {				
 				field: "Actions",
 				title: "Acciones",
@@ -636,17 +636,7 @@ var DatatableRemoteAjaxDemo = function () {
 
 
 		});
-		//busqueda para la tabla de remisiones
-		var query1 = datatable1.getDataSourceQuery();
-		
-		$('#m_form_search').on('keyup', function (e) {
-			// shortcode to datatable.getDataSourceParam('query');
-			var query1 = datatable1.getDataSourceQuery();
-			query1.generalSearch = $(this).val().toLowerCase();
-			// shortcode to datatable.setDataSourceParam('query', query);
-			datatable1.setDataSourceQuery(query1);
-			datatable1.load();
-		}).val(query1.generalSearch);
+
 
 
 
